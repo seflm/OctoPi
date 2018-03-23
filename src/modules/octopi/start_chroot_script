@@ -244,7 +244,7 @@ echo "# Swap ports used by the GPIO (soldered pins) and the internal Bluetooth c
 echo "dtoverlay=pi3-miniuart-bt" >> /boot/config.txt
 # Disabling the serial console.
 mv /boot/cmdline.txt /boot/cmdline.txt.old
-sed '/console=serial0,115200/d' < /boot/cmdline.txt.old > /boot/cmdline.txt
+sed 's/console=serial0,115200//' < /boot/cmdline.txt.old > /boot/cmdline.txt
 rm -f /boot/cmdline.txt.old
 
 #cleanup
