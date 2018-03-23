@@ -237,22 +237,15 @@ else
   rm /root/bin/webcamd
 fi
 
-sudo -u pi mkdir -p /home/pi/temp/ipOnConnect
-pushd /home/pi/temp/ipOnConnect
-  sudo -u pi wget -Omaster.zip https://github.com/jneilliii/OctoPrint-ipOnConnect/archive/master.zip
-  sudo -u pi unzip $master.zip
-  pushd OctoPrint-ipOnConnect-master
-    sudo -u pi /home/pi/oprint/bin/python setup.py
-  popd
-popd
-sudo rm -f /home/pi/temp
+sudo -u pi /home/pi/oprint/bin/pip install https://github.com/jneilliii/OctoPrint-ipOnConnect/archive/master.zip
 
-# Swap ports used by the GPIO (soldered pins) and the internal Bluetooth chip.
-sudo -u pi echo "dtoverlay=pi3-miniuart-bt" >> /boot/config.txt
+# The following edits are done under a root user.
+echo "# Swap ports used by the GPIO (soldered pins) and the internal Bluetooth chip." >> /boot/config.txt
+echo "dtoverlay=pi3-miniuart-bt" >> /boot/config.txt
 # Disabling the serial console.
-sudo -u pi mv /boot/cmdline.txt /boot/cmdline.txt.old
-sudo -u pi sed '/console=serial0,115200/d' < /boot/cmdline.txt.old > /boot/cmdline.txt
-sudo -u pi rm -f /boot/cmdline.txt.old
+mv /boot/cmdline.txt /boot/cmdline.txt.old
+sed '/console=serial0,115200/d' < /boot/cmdline.txt.old > /boot/cmdline.txt
+rm -f /boot/cmdline.txt.old
 
 #cleanup
 apt-get clean
