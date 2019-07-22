@@ -21,8 +21,8 @@ extruder:
   sharedNozzle: false
 heatedBed: true
 id: _default
-name: Prusa i3 MK3
-model: Prusa i3 MK3
+name: Prusa i3 MK3S
+model: Prusa i3 MK3S
 volume:
   custom_box: false
   formFactor: rectangular
