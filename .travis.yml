@@ -1,6 +1,7 @@
 language: generic
+sudo: required
 before_install:
-  - apt-get install gawk util-linux realpath qemu-user-static git p7zip-full python3
+  - sudo apt-get install gawk util-linux realpath qemu-user-static git p7zip-full python3 -y
 
 install:
   - cd $TRAVIS_BUILD_DIR && cd ..
