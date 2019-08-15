@@ -42,8 +42,5 @@ temperature:
 printerProfiles:
   default: _default
 serial:
-  additionalPorts:
-  - /dev/ttyAMA0
   autoconnect: true
   baudrate: 115200
-  port: /dev/ttyAMA0
