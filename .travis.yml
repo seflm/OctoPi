@@ -15,5 +15,13 @@ before_script:
   - ../../CustomPiOS/src/update-custompios-paths
   - sudo modprobe loop
 
-script:
-  - sudo bash -x ./build_dist
+jobs:
+  include:
+    - stage: script
+      name: Pi0 image
+      script:
+        - sudo bash -x ./build_dist
+    - stage: script
+      name: Pi3 image
+      script:
+        - sudo bash -x ./build_dist config_pi3.yaml
