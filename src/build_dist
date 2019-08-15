@@ -6,6 +6,7 @@ if [ -z "$1" ]
   then
     echo "No Pi version specific config.yaml specified. Using default for Pi0."
   else
+  	echo "Using $1 as octoprint config file"
   	mv ./modules/octopi/filesystem/home/pi/.octoprint/$1 ./modules/octopi/filesystem/home/pi/.octoprint/config.yaml
 fi
 
