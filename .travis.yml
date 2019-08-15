@@ -25,3 +25,10 @@ jobs:
       name: Pi3 image
       script:
         - sudo bash -x ./build_dist config_pi3.yaml
+
+deploy:
+  provider: releases
+  api_key: $ACCESS_TOKEN
+  file:
+    - ${TRAVIS_BUILD_DIR}/src/workspace/*.img
+  skip_cleanup: true
