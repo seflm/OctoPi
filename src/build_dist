@@ -2,6 +2,13 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+if [ -z "$1" ]
+  then
+    echo "No Pi version specific config.yaml specified. Using default for Pi0."
+  else
+  	mv ./modules/octopi/filesystem/home/pi/.octoprint/$1 ./modules/octopi/filesystem/home/pi/.octoprint/config.yaml
+fi
+
 export DIST_PATH=${DIR}
 export CUSTOM_PI_OS_PATH=$(<${DIR}/custompios_path)
 export PATH=$PATH:$CUSTOM_PI_OS_PATH
