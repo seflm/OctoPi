@@ -31,4 +31,8 @@ deploy:
   api_key: $ACCESS_TOKEN
   file:
     - ${TRAVIS_BUILD_DIR}/src/workspace/*.img
+  on:
+    branches:
+      only:
+        - devel-upted
   skip_cleanup: true
